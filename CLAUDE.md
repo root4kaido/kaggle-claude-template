@@ -1,12 +1,10 @@
-# CLAUDE.md — MMLM2026 コンペ作業規約
+# CLAUDE.md
 
 ## コンペ概要
 
 - **コンペ名**: 
-- **コンペURL**: <!-- TODO: URLを記入 -->
-- **評価指標**: <!-- TODO: 記入 -->
-- **提出形式**: <!-- TODO: 記入 -->
-- **期限**: <!-- TODO: 記入 -->
+
+- **コンペURL**: 
 
 ## 実行環境
 
@@ -93,4 +91,5 @@ tmux capture-pane -t dev0 -p | tail -50
 - `/experiment [実験名]` — 新規実験フォルダ作成（SESSION_NOTES.md + config.yaml の雛形生成）
 - `/evaluate` — 全実験のSESSION_NOTESを読み取り `workspace/experiment_summary.md` に集約
 - `/survey-discussion` — Kaggleディスカッションの定点観測・差分分析
+- `/survey-notebooks` — Kaggleノートブックの調査・手法分析 → `docs/survey/notebooks/` に保存
 - `/survey-papers [キーワード]` — 論文・類似コンペ解法の調査 → `docs/paper/` に保存

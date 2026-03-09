@@ -17,6 +17,7 @@ description: Kaggleのノートブック（Code）を調査する。コンペの
 
 3. **スクレイピングスクリプトの確認/作成**:
    - `docs/survey/notebooks/` にスクレイピングスクリプトがあるか確認
+   - ある場合は、それを参考にカスタマイズ
    - なければ `scrape_notebooks.py` と `scrape_notebook_details.py` を作成
 
 4. **データ取得**（tmux上で実行）:

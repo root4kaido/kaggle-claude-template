@@ -77,6 +77,7 @@ tmux capture-pane -t dev0 -p | tail -50
 - `datasets/raw/` の中身を直接加工・変更しない
 - `myMemo.md` をClaude側で編集しない
 - 実験フォルダ外にモデルや中間ファイルを散らかさない
+- /tmpにファイルを作らない
 
 ## 変更の作法
 

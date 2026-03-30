@@ -7,5 +7,44 @@
       "Bash(ls *)",
       "Bash(git *)"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CMD=$(jq -r .tool_input.command); echo \"$CMD\" | grep -qP '(^|[;&|]\\s*)(python3?|pip3?)\\b' && ! echo \"$CMD\" | grep -q 'tmux send-keys' && echo '{\"decision\":\"block\",\"reason\":\"Python関連コマンドはtmux send-keysで実行してください（dev0 or dev1）\"}' || true",
+            "statusMessage": "Checking tmux requirement..."
+          },
+          {
+            "type": "command",
+            "command": "CMD=$(jq -r .tool_input.command); echo \"$CMD\" | grep -q '/tmp' && echo '{\"decision\":\"block\",\"reason\":\"/tmpへのアクセスは禁止されています\"}' || true",
+            "statusMessage": "Checking /tmp access..."
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FP=$(jq -r .tool_input.file_path); echo \"$FP\" | grep -q '^/tmp' && echo '{\"decision\":\"block\",\"reason\":\"/tmpへのファイル作成は禁止されています\"}' || true",
+            "statusMessage": "Checking /tmp access..."
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FP=$(jq -r .tool_input.file_path); echo \"$FP\" | grep -q '^/tmp' && echo '{\"decision\":\"block\",\"reason\":\"/tmpのファイル編集は禁止されています\"}' || true",
+            "statusMessage": "Checking /tmp access..."
+          }
+        ]
+      }
+    ]
   }
 }

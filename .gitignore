@@ -64,6 +64,10 @@ mlruns/
 .DS_Store
 Thumbs.db
 
+# === Playwright ===
+.playwright/
+.playwright-cli/
+
 # === Misc ===
 slack_webhook_url.txt
 envs/

@@ -21,6 +21,20 @@ output/
 *.png
 *.mp4
 
+# === Model graphs / inference artifacts (weights, OpenVINO/TF) ===
+*.bin
+*.tflite
+*.pb
+*.xml
+variables.data-*
+variables.index
+
+# === Data dumps / audio ===
+*.parquet
+*.wav
+*.ogg
+*.mp3
+
 # Allow images in markdown report folders
 !workspace/*/images_for_md/*.jpg
 !workspace/*/images_for_md/*.png
@@ -50,9 +64,11 @@ ENV/
 .idea/
 .vscode/
 
-# === Claude Code (local only) ===
+# === Agent tools (local only) ===
 .claude/*.local.*
 CLAUDE.local.md
+.codex/
+.cache/
 
 # === Logs ===
 *.log
